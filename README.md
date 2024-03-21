@@ -3,7 +3,7 @@
 
 
 
-## Objectifs
+## Objectifs :dart: :bulb:
 1. Collecter les statistiques des resultats matchs des 5 grands championnats d'Europe.
 	- Premier League
 	- Seria A Italienne
@@ -40,7 +40,7 @@
 
 
 
-## Stack Technologique
+## Stack Technologique :desktop_computer:
 * Python 3.x : Extraction Traitement et chargement des donnees sur la Base
 * MySQL / MariaDB : Base de donnees relationnelle pour le stockage des donnees
 * SQL : Pour requeter sur les donnees.
