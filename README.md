@@ -1,9 +1,9 @@
 
-## Apercu du projet
+## :hash: Apercu du projet
 
 
 
-## Objectifs :dart: :bulb:
+## :one: Objectifs :dart: :bulb: :white_check_mark:
 1. Collecter les statistiques des resultats matchs des 5 grands championnats d'Europe.
 	- Premier League
 	- Seria A Italienne
@@ -40,21 +40,21 @@
 
 
 
-## Stack Technologique :desktop_computer:
+## :two: Stack Technologique :desktop_computer:
 * Python 3.x : Extraction Traitement et chargement des donnees sur la Base
 * MySQL / MariaDB : Base de donnees relationnelle pour le stockage des donnees
 * SQL : Pour requeter sur les donnees.
 
 
-## Structuration du projet
+## :three: Structuration du projet :file_folder:
 ```
-:file_folder: TopLeague/ (Repertoire principal du projet)
+ TopLeague/ (Repertoire principal du projet)
    |
    |---- LICENSE
    |
    |---- README
    |
-   |---- :file_folder: scripts/
+   |---- scripts/
    |       |
    |       |---- :file_folder: config/
    |       |       |
@@ -63,7 +63,7 @@
    |       |---- extraction.py
 ```
 
-## Utilisation
+## :four: Utilisation
 1. Cloner le projet
 ```
 git clone https://github.com/bylaye/TopLeague.git
@@ -75,6 +75,7 @@ pip install -r requirements.txt
 ```
 
 
-## Contribution
+## :five: Contribution :accessibility: :on: :question:
+
 Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce projet en ajoutant de nouvelles fonctionnalités, en améliorant l'analyse des données ou en corrigeant des erreurs, n'hésitez pas à ouvrir une Pull Request.
 
