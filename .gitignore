@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Exclure les fichiers de dataset telecharges
+scripts/data
+
 # Distribution / packaging
 .Python
 build/
