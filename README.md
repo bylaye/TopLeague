@@ -48,15 +48,15 @@
 
 ## Structuration du projet
 ```
-TopLeague/ (Repertoire principal du projet)
+:file_folder: TopLeague/ (Repertoire principal du projet)
    |
    |---- LICENSE
    |
    |---- README
    |
-   |---- scripts/
+   |---- :file_folder: scripts/
    |       |
-   |       |---- config/
+   |       |---- :file_folder: config/
    |       |       |
    |       |       |---- config.ini 
    |       |
