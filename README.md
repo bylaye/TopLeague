@@ -47,7 +47,19 @@
 
 
 ## Structuration du projet
-
+TopLeague/ (Repertoire principal du projet)
+   |
+   |---- LICENSE
+   |
+   |---- README
+   |
+   |---- scripts/
+   |       |
+   |       |---- config/
+   |       |       |
+   |       |       |---- config.ini 
+   |       |
+   |       |---- extraction.py
 
 
 ## Utilisation
