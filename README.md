@@ -47,6 +47,7 @@
 
 
 ## Structuration du projet
+```
 TopLeague/ (Repertoire principal du projet)
    |
    |---- LICENSE
@@ -60,7 +61,7 @@ TopLeague/ (Repertoire principal du projet)
    |       |       |---- config.ini 
    |       |
    |       |---- extraction.py
-
+```
 
 ## Utilisation
 1. Cloner le projet
