@@ -1,6 +1,5 @@
 import configparser
 import os
-import sys
 import requests
 from datetime import date, datetime
 
