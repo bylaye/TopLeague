@@ -5,11 +5,11 @@
 
 ## :one: Objectifs :dart: :bulb: :white_check_mark:
 1. Collecter les statistiques des resultats matchs des 5 grands championnats d'Europe.
-	- Premier League
-	- Seria A Italienne
-	- la Liga Espagnole
-	- Bundesliga Allemande
-	- La Ligue 1 Francaise
+	- Premier League :uk:
+	- Seria A Italienne :it:
+	- la Liga Espagnole :es:
+	- Bundesliga Allemande :de:
+	- La Ligue 1 Francaise :fr:
 
 > [!NOTE]
 > On retrouvera dans les statistiques: le score, le nombre de tirs(cadres/non cadres),
@@ -63,7 +63,7 @@
    |       |---- extraction.py
 ```
 
-## :four: Utilisation
+## :four: Utilisation :accessibility:
 1. Cloner le projet
 ```
 git clone https://github.com/bylaye/TopLeague.git
@@ -75,7 +75,7 @@ pip install -r requirements.txt
 ```
 
 
-## :five: Contribution :accessibility: :on: :question:
+## :five: Contribution   :on:  :question:
 
 Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce projet en ajoutant de nouvelles fonctionnalités, en améliorant l'analyse des données ou en corrigeant des erreurs, n'hésitez pas à ouvrir une Pull Request.
 
