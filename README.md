@@ -10,6 +10,7 @@
 	- la Liga Espagnole
 	- Bundesliga Allemande
 	- La Ligue 1 Francaise
+
 On retrouvera dans les statistiques: le score, le nombre de tirs(cadres/non cadres),
 le total corners, le nombre de faute, les cartons distribues, le score a la mi-temps.
 La Source actuelle ne fournit pas le nom des joueurs buteurs, ni la composition des equipes.
@@ -17,17 +18,17 @@ La Source actuelle ne fournit pas le nom des joueurs buteurs, ni la composition 
 2. Nettoyer, traiter et exporter les donnees sur le warehouse. 
 3. Analyser la data avec la requetage SQL. L'analyse se fera des interrogations les plus simples
 	- Basic requete
-	 - Le score final, score a la mi-temps
-	 - Le nombre de fautes commises par equipe, ...
+		- Le score final, score a la mi-temps
+		- Le nombre de fautes commises par equipe, ...
 	- Medium
-	 - Ressortir le championnat le plus prolifique(plus de buts inscrits)
-	 - Les pires humiliations (defaite a domicile sur score fleuve < 5 buts)
-	 - Les ratios tirs/buts
+		- Ressortir le championnat le plus prolifique(plus de buts inscrits)
+		- Les pires humiliations (defaite a domicile sur score fleuve < 5 buts)
+		- Les ratios tirs/buts
 	- Hard
-	 - Surprenant mais ressortir le classement par saison. Tout simplement par ce que le jeu de donnees
-	   ne traite que le resultat score. On doit refaire le parcours pour determiner 
-	   l'equipe champion et le classement general 
-	 - Les statistiques approfondies par ligue, par equipe, par saison.
+	 	- Surprenant mais ressortir le classement par saison. Tout simplement par ce que le jeu de donnees
+	   	ne traite que le resultat score. On doit refaire le parcours pour determiner 
+	   	l'equipe champion et le classement general 
+		- Les statistiques approfondies par ligue, par equipe, par saison.
 
 > [!IMPORTANT]
 > Le choix de faire appel le moins possible a des bibliotheques externes est volontaire.
