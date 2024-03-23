@@ -1,10 +1,8 @@
-import configparser
 import os
 import requests
 from datetime import date, datetime
 
 
-absolute_dir_path_file = os.path.abspath(os.path.dirname(__file__))
 leagues = {
     'E0': 'Premier League',
     'I1': 'Seria A Italienne',
@@ -12,62 +10,17 @@ leagues = {
     'D1': 'Bundesliga Allemande',
     'F1': 'Ligue 1 France'
 }
+
 LIMIT_SEASON = 2007
-
-
-def absolute_path_directory_data(parent_dir, name):
-    """
-    Creer et retourner le chemin absolu du répertoire de stockage.
-
-    Args:
-        parent_dir (str): Le chemin absolu du répertoire parent où le répertoire de stockage sera créé.
-        name (str): Le nom du répertoire de stockage à créer.
-
-    Returns:
-        str: Le chemin absolu du répertoire de stockage.
-
-    Note:
-        Cette fonction prend en entrée le chemin absolu du répertoire parent 
-        et le nom du répertoire de stockage à créer.
-        Si le répertoire de stockage n'existe pas, il sera cree.
-        Le chemin absolu du répertoire de stockage est retourné.
-    """
-    path_dir = os.path.join(parent_dir, name)
-    if not os.path.isdir(path_dir):
-        os.makedirs(path_dir)
-    return os.path.abspath(path_dir)
-
-
-def check_config_file():
-    """
-    Vérifie si le fichier de configuration existe. 
-    Ce fichier stocke le variable repertoire de stockage des donnees
-
-    Returns:
-        str: Le chemin absolu du fichier de configuration s'il existe.
-
-    Note:
-        Cette fonction vérifie l'existence du fichier 
-        de configuration 'config.ini' dans le répertoire 'config' spécifié.
-        Si le fichier existe, le chemin absolu du fichier est renvoyé.
-        Si le fichier n'existe pas, un message d'erreur est affiché 
-        et le programme s'arrête avec un code de sortie non nul.
-    """
-    path_dir = os.path.join(absolute_dir_path_file, 'config')
-    filename = os.path.join(path_dir, 'config.ini')
-    if os.path.isfile(filename):
-        return filename
-    else:
-        print(f"config file {filename} don't exists")
-        exit(1)
-
+total_season = date.today().year - LIMIT_SEASON
 
 def seasons(number_season=1):
     """
     Genere un list de saison en fonction du nombre de saison specifie
     
     Args:
-        number_season (int, optional): Le nombre de saisons à générer. Par défaut, une seule saison est générée.
+        number_season (int, optional): Le nombre de saisons à générer. 
+        Par défaut, une seule saison est générée.
     
     Returns:
         list: Une liste de saisons de football, représentées sous forme d'années. 
@@ -79,9 +32,10 @@ def seasons(number_season=1):
         en utilisant l'année actuelle et l'année précédente pour chaque saison. 
         Si le nombre de saisons spécifié est supérieur au nombre d'années écoulées 
         depuis l'année limite (définie par la constante LIMIT_SEASON), 
-        la fonction avertit l'utilisateur que le nombre de saisons générées est limité par l'année limite. 
-        Par exemple, si LIMIT_SEASON est définie sur 2010, et que le nombre de saisons demandé est de 15, 
-        la fonction ne générera que des saisons à partir de 2010.
+        la fonction avertit l'utilisateur que le nombre de saisons générées 
+        est limité par l'année limite. Par exemple, si LIMIT_SEASON est définie 
+        sur 2010, et que le nombre de saisons demandé est de 15, la fonction 
+        ne générera que des saisons à partir de 2010.
 
     Example:
         >>> seasons()
@@ -93,7 +47,6 @@ def seasons(number_season=1):
         ['2324', '2223', '2122', '2021', '1920', '1819', '1718', '1617', '1516', 
         '1415', '1314', '1213', '1112', '1011', '0910', '0809', '0708']
     """
-
     current_year = date.today().year
     if (current_year - number_season) < LIMIT_SEASON:
         number_season = current_year - LIMIT_SEASON
@@ -105,6 +58,10 @@ def seasons(number_season=1):
         seasons.append(season)
         current_year -= 1
     return seasons
+
+
+def all_seasons():
+    return seasons(total_season)
 
 
 def extract_data(league, season):
@@ -160,35 +117,3 @@ def store_data(data, filename):
         print(err)
     except Exception as err:
         print(err)
-
-
-if __name__ == '__main__':
-    
-    config_file = check_config_file()
-    config = configparser.ConfigParser()
-    config.read(config_file)
-
-    dirname_data = config.get('dirs', 'DIRNAME_DATA_EXTRACT')
-    dir_data_extract = absolute_path_directory_data(absolute_dir_path_file, dirname_data)
-    
-    all_season = date.today().year - LIMIT_SEASON
-    seasons = seasons(all_season)
-
-    for season in seasons:
-        count_league = 0
-        print(f'Season {season}')
-        start_extract_season = datetime.now()
-        
-        for league in leagues:
-            count_league += 1
-            start_extract_league = datetime.now()
-            data = extract_data(league=league, season=season)
-            d = absolute_path_directory_data(dir_data_extract, season)
-            filename = os.path.join(d, season+'_'+league+'.csv' )
-            store_data(data=data, filename=filename)
-            
-            time_league_extract = (datetime.now() - start_extract_league).total_seconds()
-            print(f'Done {count_league}/{len(leagues)} : League {leagues[league]}, t = {time_league_extract} sec')
-        
-        time_season_extract = (datetime.now() - start_extract_season).total_seconds()
-        print(f'Done Extraction Season {season} after {time_season_extract} seconds')

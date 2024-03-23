@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Exclure les fichiers de dataset telecharges
-scripts/data
+data/
 
 # Distribution / packaging
 .Python
