@@ -32,6 +32,7 @@ def dirs_storage_data(parent_dir=path_data, name=None):
         os.makedirs(path_dir)
     return os.path.abspath(path_dir)
 
+
 def check_config_file():
     """
     Vérifie si le fichier de configuration existe. 
@@ -58,7 +59,7 @@ def check_config_file():
 
 if __name__ == '__main__':
 
-    seasons = scripts.extraction.all_seasons()
+    all_seasons = scripts.extraction.all_seasons()
     leagues = scripts.extraction.leagues
 
     config_file = check_config_file()
@@ -76,7 +77,15 @@ if __name__ == '__main__':
     cnx = db.engine_connection(db_user, db_password, db_host, db_port)
     cursor = cnx.cursor()
     cnx.database = db.create_database(cursor, db_name)
-    db.create_table(cursor, tb_name)
+    #db.create_table(cursor, tb_name)
+
+    tb_season = db.check_season(cursor, db_name, tb_name)
+    list_tb_seasons = []
+    for s  in tb_season:
+        list_tb_seasons.append(s[0])
+    if list_tb_seasons:
+        list_tb_seasons.pop()
+    seasons = sorted(set(all_seasons) - set(list_tb_seasons))
 
     for season in seasons:
         print(f'Season {season}')

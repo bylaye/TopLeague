@@ -50,9 +50,24 @@ def table_description(tb_name):
 
 def insert_data(cursor, tb_name, val):
     req = f"""
-            INSERT INTO {tb_name} 
+            INSERT IGNORE INTO {tb_name} 
                 (`SEASON`, `LEAGUE`, `Date`,  `HomeTeam`, `AwayTeam`, `FTHG`, `FTAG`, `FTR`, `HTHG`,
                   `HTAG`, `HTR`, `HS`, `AS`, `HST`, `AST`, `HF`, `AF`, `HC`, `AC`, `HY`, `AY`, `HR`, `AR` )
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
     cursor.executemany(req, val)
+
+
+def check_season(cursor, db_name, tb_name):
+    req = f"""
+            SELECT DISTINCT SEASON FROM `{db_name}`.`{tb_name}` ORDER BY SEASON
+        """
+    result = []
+    try:
+        cursor.execute(req)
+        result =  cursor.fetchall()
+    except:
+        create_table(cursor, tb_name)
+        print(f'SUCCESS TABLE CREATION {tb_name}')
+    return result
+    

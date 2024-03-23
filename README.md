@@ -16,7 +16,7 @@
 > le total corners, le nombre de faute, les cartons distribues, le score a la mi-temps.
 > La Source actuelle ne fournit pas le nom des joueurs buteurs, ni la composition des equipes.
 
-2. Nettoyer, traiter et exporter les donnees sur le warehouse. 
+2. Nettoyer, traiter et exporter les donnees au niveau du warehouse. 
 
 3. Analyser la data avec la requetage SQL. L'analyse se fera des interrogations les plus simples
 	- Basic
@@ -50,17 +50,31 @@
 ```
  TopLeague/ (Repertoire principal du projet)
    |
-   |---- LICENSE
+   |---- run.py
+   |---- requirements.txt
+   |---- config/
+   |       |---- config.ini
    |
-   |---- README
-   |
-   |---- scripts/
-   |       |
-   |       |---- :file_folder: config/
-   |       |       |
-   |       |       |---- config.ini 
-   |       |
+   |---- scripts/ 
    |       |---- extraction.py
+   |       |---- loads.py
+   |       |---- treatement.py
+   |
+   |---- data/ (regroupe l'ensemble des fichier par ligue organiser par saison)
+           |
+           |---- 0708/ (Saison 2007-2008)
+           |       |---- 0708_D1.csv (bundesliga allemande)
+           |       |---- 0708_E0.csv (Premier League)
+           |       |---- 0708_F1.csv (Ligue 1 francaise)
+           |       |---- 0708_I1.csv (Serie A talienne)
+           |       |---- 0708_SP1.csv (Liga Espagnole)
+           |
+           |---- 0809/
+           |       | ....
+           |---- ..../
+           |
+           |---- 2324/
+                   |....
 ```
 
 ## :four: Utilisation :accessibility:
@@ -73,7 +87,16 @@ git clone https://github.com/bylaye/TopLeague.git
 ```
 pip install -r requirements.txt
 ```
+> [!WARNING]
+> Configurer les parametres de la base de donnees (Mysql / mariadb)
 
+> Editer le fichier config.ini dans le repertoire config.
+
+
+3. Lancer le programme avec le run.py
+```
+python3 run.py
+```
 
 ## :five: Contribution   :on:  :question:
 
