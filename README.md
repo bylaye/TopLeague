@@ -82,14 +82,15 @@
 ```
 git clone https://github.com/bylaye/TopLeague.git
 ```
-
+```
+cd TopLeague
+```
 2. Installer les dependances 
 ```
 pip install -r requirements.txt
 ```
 > [!WARNING]
-> Configurer les parametres de la base de donnees (Mysql / mariadb)
-
+> Configurer les parametres de la base de donnees (Mysql / mariadb)\
 > Editer le fichier config.ini dans le repertoire config.
 
 
